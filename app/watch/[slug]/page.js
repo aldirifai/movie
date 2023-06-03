@@ -135,6 +135,14 @@ export default function Watch({ params }) {
                                     </div>
                                 )}
                             </div>
+
+                            <div className="mt-3 text-center col-12">
+                                <hr />
+                                back to{" "}
+                                <Link href="/" className="text-decoration-none">
+                                    Home
+                                </Link>
+                            </div>
                         </div>
                     </div>
                 </>
