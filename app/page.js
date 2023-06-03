@@ -2,7 +2,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Home() {
     const [search, setSearch] = useState("");
@@ -64,59 +63,70 @@ export default function Home() {
                             </div>
                         ) : (
                             <div className="text-left row">
-                                {searchResults.map((result) => (
-                                    <div
-                                        className="mt-3 col-12 col-md-4 col-lg-3"
-                                        key={result._id}
-                                    >
-                                        <div className="card h-100">
-                                            <Image
-                                                src={result.posterImg}
-                                                className="card-img-top"
-                                                alt={result.title}
-                                                width={300}
-                                                height={450}
-                                            />
-                                            <div className="card-body">
-                                                <h5 className="card-title">
-                                                    {result.title}
-                                                </h5>
-                                                <p className="card-text">
-                                                    {result.directors.join(
-                                                        ", "
-                                                    )}
-                                                </p>
-                                                <p className="card-text">
-                                                    {result.type === "movie" ? (
-                                                        <span className="badge bg-primary">
-                                                            Movie
-                                                        </span>
-                                                    ) : (
-                                                        <span className="badge bg-success">
-                                                            {result.type}
-                                                        </span>
-                                                    )}
-                                                </p>
-                                                <p className="text-left card-text">
-                                                    Genre:{" "}
-                                                    {result.genres.join(", ")}
-                                                </p>
-                                                <p className="text-left card-text">
-                                                    Cast:{" "}
-                                                    {result.casts?.join(", ")}
-                                                </p>
-                                            </div>
-                                            <div className="card-footer">
-                                                <Link
-                                                    href={`/watch/${result._id}`}
-                                                    className="mt-auto btn btn-success w-100"
-                                                >
-                                                    Watch
-                                                </Link>
+                                {searchResults.length === 0 ? (
+                                    <div className="col-12">
+                                        <h3 className="text-center">
+                                            No results found
+                                        </h3>
+                                    </div>
+                                ) : (
+                                    searchResults.map((result) => (
+                                        <div
+                                            className="mt-3 col-12 col-md-4 col-lg-3"
+                                            key={result._id}
+                                        >
+                                            <div className="card h-100">
+                                                <img
+                                                    src={result.posterImg}
+                                                    className="card-img-top"
+                                                    alt={result.title}
+                                                />
+                                                <div className="card-body">
+                                                    <h5 className="card-title">
+                                                        {result.title}
+                                                    </h5>
+                                                    <p className="card-text">
+                                                        {result.directors?.join(
+                                                            ", "
+                                                        )}
+                                                    </p>
+                                                    <p className="card-text">
+                                                        {result.type ===
+                                                        "movie" ? (
+                                                            <span className="badge bg-primary">
+                                                                Movie
+                                                            </span>
+                                                        ) : (
+                                                            <span className="badge bg-success">
+                                                                {result.type}
+                                                            </span>
+                                                        )}
+                                                    </p>
+                                                    <p className="text-left card-text">
+                                                        Genre:{" "}
+                                                        {result.genres?.join(
+                                                            ", "
+                                                        )}
+                                                    </p>
+                                                    <p className="text-left card-text">
+                                                        Cast:{" "}
+                                                        {result.casts?.join(
+                                                            ", "
+                                                        )}
+                                                    </p>
+                                                </div>
+                                                <div className="card-footer">
+                                                    <Link
+                                                        href={`/watch/${result._id}`}
+                                                        className="mt-auto btn btn-success w-100"
+                                                    >
+                                                        Watch
+                                                    </Link>
+                                                </div>
                                             </div>
                                         </div>
-                                    </div>
-                                ))}
+                                    ))
+                                )}
                             </div>
                         )}
                     </div>

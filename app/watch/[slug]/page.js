@@ -71,7 +71,7 @@ export default function Watch({ params }) {
                         <div className="py-5 row">
                             <div className="mb-3 text-center col-12">
                                 <h1>{data.title}</h1>
-                                <h5>{data.directors.join(", ")}</h5>
+                                <h5>{data.directors?.join(", ")}</h5>
                                 <div className="mt-5 embed-responsive embed-responsive-16by9">
                                     <iframe
                                         className="embed-responsive-item w-100"
@@ -97,7 +97,7 @@ export default function Watch({ params }) {
                                 <p>{data.synopsis}</p>
                                 <p>Release Date: {data.releaseDate}</p>
                                 <p>Duration: {data.duration}</p>
-                                <p>Genre: {data.genres.join(", ")}</p>
+                                <p>Genre: {data.genres?.join(", ")}</p>
                                 <p>Cast: {data.casts?.join(", ")}</p>
 
                                 <hr />
