@@ -74,6 +74,8 @@ export default function Home() {
                                                 src={result.posterImg}
                                                 className="card-img-top"
                                                 alt={result.title}
+                                                width={300}
+                                                height={450}
                                             />
                                             <div className="card-body">
                                                 <h5 className="card-title">
