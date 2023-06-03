@@ -2,6 +2,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
     const [search, setSearch] = useState("");
@@ -69,7 +70,7 @@ export default function Home() {
                                         key={result._id}
                                     >
                                         <div className="card h-100">
-                                            <img
+                                            <Image
                                                 src={result.posterImg}
                                                 className="card-img-top"
                                                 alt={result.title}
